@@ -58,3 +58,26 @@ function checkDot() {
       break;
   }
 }
+
+const nav = document.querySelector('nav');
+const sectionOne = document.querySelector('.landing-page');
+
+const sectionOneOptions = {
+  rootMargin: "-372px"
+};
+
+const sectionOneObserver = new IntersectionObserver( function(
+  entries, 
+  sectionOneObserver
+  ) {
+    entries.forEach(entry =>{
+      if(!entry.isIntersecting){
+        nav.classList.add('nav-background');
+      } else {
+        nav.classList.remove('nav-background');
+      }
+    })
+}, 
+sectionOneOptions)
+
+sectionOneObserver.observe(sectionOne);
